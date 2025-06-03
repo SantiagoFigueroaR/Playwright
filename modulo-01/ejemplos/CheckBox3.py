@@ -27,11 +27,21 @@ def test_checkbox3(playwright : Playwright) -> None:
     page.keyboard.press("Enter")  # Presionar Enter para confirmar la fecha
     page.locator('#subjectsInput').fill('Matemáticas'); 
     
-    
-    page.locator("//label[contains(text(),'Sports')]").check()
-    page.locator("//label[contains(text(),'Reading')]").check()
-    page.locator("//label[contains(text(),'Reading')]").uncheck()  
-    page.locator("//label[contains(text(),'Music')]").check()
+    # Elementos CheckBox con check y uncheck
+
+    # page.locator("//label[contains(text(),'Sports')]").check()
+    # page.locator("//label[contains(text(),'Reading')]").check()
+    # page.locator("//label[contains(text(),'Reading')]").uncheck()  
+    # page.locator("//label[contains(text(),'Music')]").check()
+
+    # CheckBox con ciclo for
+
+    for i in range(1,4):
+        #print(i)
+        page.locator(f"//*[@id='hobbiesWrapper']/div[2]/div[{i}]/label[1]").click()
+
+    expect(page).to_have_url(re.compile(".*automation-practice-form"))
+
 
     # Cerrar contexto y navegador
     context.close()
