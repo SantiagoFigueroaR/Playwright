@@ -1,4 +1,5 @@
-#playwright codegen https://demoqa.com/checkbox
+#Este codigo fue generado por el siguiente comando 
+#-playwright codegen https://demoqa.com/checkbox
 
 import re
 from playwright.sync_api import Playwright, sync_playwright, expect
