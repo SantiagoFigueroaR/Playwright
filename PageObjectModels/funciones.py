@@ -62,3 +62,26 @@ class Funciones_Globales:
         p.highlight()
         p.click()        
         self.Esperar(tiempo)
+
+    def Combo(self, selector, texto, tiempo = 0.3):
+        t = self.page.locator(selector)
+        expect(t).to_be_visible()
+        expect(t).to_be_enabled()
+        t.highlight()
+        t.click()
+        self.Esperar(tiempo)
+        opciones  = self.page.locator(f"//div[contains(text(),'{texto}')]", ) # Tienes que adecuar el selector según tu necesidad
+        expect(opciones).to_be_visible()
+        expect(opciones).to_be_enabled()
+        opciones.highlight()
+        opciones.click()
+        self.Esperar(tiempo)
+
+    def Combo_label(self, selector, texto, tiempo = 0.3):
+        t = self.page.locator(selector)
+        expect(t).to_be_visible()
+        expect(t).to_be_enabled()
+        t.highlight()
+        t.select_option(label = texto)
+        self.Esperar(tiempo)
+        
