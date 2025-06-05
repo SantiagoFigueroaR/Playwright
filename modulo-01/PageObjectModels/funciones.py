@@ -22,6 +22,16 @@ class Funciones_Globales:
         t.highlight()
         t.fill(texto)
         self.Esperar(tiempo)
+
+    def TextoEvidencia(self, selector, texto, ruta, tiempo = 0.3):
+        t = self.page.locator(selector)
+        expect(t).to_be_visible()
+        expect(t).to_be_enabled()
+        expect(t).to_be_empty()
+        t.highlight()
+        t.fill(texto)
+        self.page.screenshot(path=ruta)
+        self.Esperar(tiempo)
     
     def Click(self, selector, tiempo = 0.3):
         t = self.page.locator(selector)
@@ -29,4 +39,26 @@ class Funciones_Globales:
         expect(t).to_be_enabled()
         t.highlight()
         t.click()
+        self.Esperar(tiempo)
+
+    def Fecha(self, selector, fecha, tiempo = 0.3):
+        t = self.page.locator(selector)
+        expect(t).to_be_visible()
+        expect(t).to_be_enabled()
+        t.highlight()
+        t.fill(fecha)
+        self.page.mouse.click(0, 50)    # Click para cerrar el calendario
+        self.Esperar(tiempo)
+
+    def FechaClick(self, selector, clickFecha, tiempo = 0.3):
+        t = self.page.locator(selector)
+        expect(t).to_be_visible()
+        expect(t).to_be_enabled()
+        t.highlight()
+        t.click()
+        p = self.page.locator(clickFecha)
+        expect(p).to_be_visible()
+        expect(p).to_be_enabled()  
+        p.highlight()
+        p.click()        
         self.Esperar(tiempo)
