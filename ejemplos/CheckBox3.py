@@ -25,7 +25,7 @@ def test_checkbox3(playwright : Playwright) -> None:
     page.locator("//input[@id='userNumber']").fill("1234567890")
     page.locator("//input[@id='dateOfBirthInput']").fill("01 Jan 2000")
     page.keyboard.press("Enter")  # Presionar Enter para confirmar la fecha
-    page.locator('#subjectsInput').fill('Matemáticas'); 
+    page.locator('#subjectsInput').fill('Matemáticas') 
     
     # Elementos CheckBox con check y uncheck
 

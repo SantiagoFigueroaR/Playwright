@@ -23,6 +23,10 @@ class Funciones_Globales:
         t.fill(texto)
         self.Esperar(tiempo)
 
+    def TomarScreenchot(self, ruta, tiempo = 0.3):
+        self.page.screenshot(path=ruta)
+        self.Esperar(tiempo)
+
     def TextoEvidencia(self, selector, texto, ruta, tiempo = 0.3):
         t = self.page.locator(selector)
         expect(t).to_be_visible()
