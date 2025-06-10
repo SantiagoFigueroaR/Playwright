@@ -1,6 +1,8 @@
 #Se ejecuta de forma normal generando archivo .zip
 #-playwright show-trace trace_viewer.zip
 
+# Para entrar en modo debug inplementar comando: 
+# - set PWDEBUG=1 // para terminar Debug cambiar a 0
 
 import re
 import random
@@ -34,7 +36,10 @@ def test_trace_viewer(playwright: Playwright) -> None:
     # utilizando los métodos de la clase Funciones_Globales
     
     F.Esperar()
-    F.Scroll(0, 300)         
+    F.Scroll(0, 300)   
+
+    #Iniciar Debug
+    #page.pause()      
 
     F.TextoEvidencia("#firstName", "Santiago" + str(nomA[0]), ruta+"Nombre.png")
     F.Texto(f"#lastName", "Villanueva"+ str(nomA[0]))     
