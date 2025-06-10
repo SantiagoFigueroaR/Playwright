@@ -34,3 +34,7 @@ def test_generator(playwright: Playwright) -> None:
 
     F.Esperar()
     F.Scroll(0, 300) 
+
+    # Cerrar Context u Browser
+    context.close()   
+    browser.close() 
