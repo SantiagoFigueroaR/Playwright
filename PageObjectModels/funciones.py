@@ -96,3 +96,7 @@ class Funciones_Globales:
     def Quitar_Archivo(self, selector, tiempo = 0.3):
         t = self.page.locator(selector).set_input_files([])
         self.Esperar(tiempo)
+
+    def Click_first(self, selector, tiempo = 0.3):
+        t = self.page.locator(selector).first.click()
+        self.Esperar(tiempo)
