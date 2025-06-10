@@ -7,6 +7,7 @@ ruta = "Evidencias/"
 #Metodo Random 
 numA = random.sample(range(1,4),1)
 nomA =random.sample(range(1,1000),4)
+rutaArchivos = "C:/Practicas/Playwright/Playwright/PageObjectModels/Pdf/EXPLODE - Manual de Desactivación TEIA.pdf"
 
 def test_select(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False, slow_mo=100)
@@ -38,7 +39,8 @@ def test_select(playwright: Playwright) -> None:
         #print(i)
         page.locator(f"//*[@id='hobbiesWrapper']/div[2]/div[{i}]/label[1]").click()
 
-    expect(page).to_have_url(re.compile(".*automation-practice-form"))   
+    expect(page).to_have_url(re.compile(".*automation-practice-form"))  
+    F.Cargar_archivo("#uploadPicture", rutaArchivos)  # Cargar un archivo
 
     F.TomarScreenchot(ruta+"FormularioCompleto.png")  # Tomar screenshot del formulario completo
     F.Combo("//*[@id='state']/div/div[1]", 'NCR')

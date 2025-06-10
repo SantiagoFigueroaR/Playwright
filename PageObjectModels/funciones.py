@@ -88,4 +88,11 @@ class Funciones_Globales:
         t.highlight()
         t.select_option(label = texto)
         self.Esperar(tiempo)
+
+    def Cargar_archivo(self, selector, rutaArchivo, tiempo = 0.3):
+        t = self.page.locator(selector).set_input_files(rutaArchivo)
+        self.Esperar(tiempo)
         
+    def Quitar_Archivo(self, selector, tiempo = 0.3):
+        t = self.page.locator(selector).set_input_files([])
+        self.Esperar(tiempo)
