@@ -19,3 +19,21 @@ def test_parametrizar(set_up_parametros, nombre, email, direccion) -> None:
     F.Texto("#userName", nombre)
     F.Texto("#userEmail", email)   
     F.Texto("#currentAddress", direccion)
+
+data2 = {
+    'argnames': "nombre, email , direccion",
+    'argvalues': [("santiago", "fire@hasda.com","Calle2"),
+        ("santi", "sdfdsf@sdfsdf.com","Calle3"),
+        ("santi2", "santi2@hasda.com","Calle4")]
+}
+
+@pytest.mark.parametrize(**data2)
+def test_parametrizar2(set_up_parametros, nombre, email, direccion) -> None:
+    page = set_up_parametros
+    F = Funciones_Globales(page)
+
+    expect(page).to_have_title("DEMOQA")
+
+    F.Texto("#userName", nombre)
+    F.Texto("#userEmail", email)   
+    F.Texto("#currentAddress", direccion)
