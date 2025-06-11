@@ -4,28 +4,35 @@ import pytest
 from playwright.sync_api import Page, expect, Playwright, sync_playwright
 from funciones import Funciones_Globales
 
+"""
+para ejecutar pruebas en paralelo:
+instalar pytest-xdist : pip install pytest-xdist
+para ejecutar pruebas en paralelo: pytest Sesion.py -s -v --browser-channel=chrome -n 2
+# Nota: El argumento '-n 2' indica el número de procesos paralelos que se ejecutarán.
+"""
+
 def test_sesion(set_up) -> None:
     page = set_up
     funciones = Funciones_Globales(page)
     expect(page).to_have_title("Swag Labs")
 
-# def test_sesion2(set_up) -> None:
-#     page = set_up
-#     F = Funciones_Globales(page) 
+def test_sesion2(set_up) -> None:
+    page = set_up
+    F = Funciones_Globales(page) 
 
-#     F.Click("//*[@id='add-to-cart-sauce-labs-backpack']")
-#     F.Click("#add-to-cart-sauce-labs-bolt-t-shirt")
+    F.Click("//*[@id='add-to-cart-sauce-labs-backpack']")
+    F.Click("#add-to-cart-sauce-labs-bolt-t-shirt")
 
-#     expect(page).to_have_url(re.compile(".*/inventory.html"))
+    expect(page).to_have_url(re.compile(".*/inventory.html"))
 
-# def test_sesion3(set_up) -> None:
-#     page = set_up
-#     F = Funciones_Globales(page)
+def test_sesion3(set_up) -> None:
+    page = set_up
+    F = Funciones_Globales(page)
 
-#     F.Click("#react-burger-menu-btn")
-#     F.Click("#about_sidebar_link")
+    F.Click("#react-burger-menu-btn")
+    F.Click("#about_sidebar_link")
 
-#     expect(page).to_have_url("https://saucelabs.com/")
+    expect(page).to_have_url("https://saucelabs.com/")
 
 def test_sesion4(set_up_validaNombre) -> None:
     page = set_up_validaNombre
