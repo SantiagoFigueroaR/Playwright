@@ -100,3 +100,9 @@ class Funciones_Globales:
     def Click_first(self, selector, tiempo = 0.3):
         t = self.page.locator(selector).first.click()
         self.Esperar(tiempo)
+
+    def Valida_Texto(self, selector, texto, tiempo = 0.3):
+        t = self.page.locator(selector)
+        expect(t).to_be_visible()
+        expect(t).to_have_text(texto)
+        self.Esperar(tiempo)
