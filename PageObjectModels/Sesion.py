@@ -4,10 +4,10 @@ import pytest
 from playwright.sync_api import Page, expect, Playwright, sync_playwright
 from funciones import Funciones_Globales
 
-# def test_sesion(set_up) -> None:
-#     page = set_up
-#     funciones = Funciones_Globales(page)
-#     expect(page).to_have_title("Swag Labs")
+def test_sesion(set_up) -> None:
+    page = set_up
+    funciones = Funciones_Globales(page)
+    expect(page).to_have_title("Swag Labs")
 
 # def test_sesion2(set_up) -> None:
 #     page = set_up
@@ -32,3 +32,9 @@ def test_sesion4(set_up_validaNombre) -> None:
     F = Funciones_Globales(page)
     txt = "Epic sadface: Username and password do not match any user in this service"
     F.Valida_Texto("//*[@id='login_button_container']/div/form/div[3]/h3",txt )
+
+def test_sesion5(set_up_validaPassword) -> None:
+    page = set_up_validaPassword
+    F = Funciones_Globales(page)
+    txt1 = "Epic sadface: Username and password do not match any user in this service"
+    F.Valida_Texto("//*[@id='login_button_container']/div/form/div[3]/h3",txt1 )
