@@ -4,6 +4,12 @@ import pytest
 from playwright.sync_api import Page, expect, Playwright, sync_playwright
 from funciones import Funciones_Globales
 
+#Reportes Html comando:
+# pytest Sesion.py -n6 --html=reportes/Sesion.html --self-contained-html --capture=tee-sys -s -v
+
+#Reportes con Reportes Html1
+# pytest Sesion.py -s -v -n6 --template=html1/index.html --report=report_tres.html
+
 """
 para ejecutar pruebas en paralelo:
 instalar pytest-xdist : pip install pytest-xdist
