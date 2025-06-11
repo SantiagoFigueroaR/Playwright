@@ -122,3 +122,29 @@ def set_up_validaPassword(playwright: Playwright) -> None:
 
     context.close()
     browser.close()
+
+@pytest.fixture(scope="function")
+def set_up_parametros(playwright: Playwright) -> None:
+    browser = playwright.chromium.launch(headless=False, slow_mo=50)
+    context = browser.new_context(
+        viewport={"width": 1280, "height": 1080},
+    )
+    #Inicia TraceViewer
+    context.tracing.start(
+        screenshots=True,
+        snapshots=True,
+        sources=True
+    )
+    page = context.new_page()
+    page.goto("https://demoqa.com/text-box#google_vignette")
+    page.set_default_timeout(500)
+    
+    
+    yield page
+
+    context.tracing.stop(
+        path="TraceSelect.zip"
+    )
+
+    context.close()
+    browser.close()
