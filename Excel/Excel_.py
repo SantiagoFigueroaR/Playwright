@@ -5,8 +5,9 @@ from playwright.sync_api import Page, expect, sync_playwright
 from funciones_excel import Funciones_Globales
 
 url = "https://demoqa.com/text-box"
-nRegistros = 4
-
+nRegistros = 11
+#Reportes con Reportes Html1
+# pytest Excel_.py -s -v -n2 --template=html1/index.html --report=report_excel.html
 # intalar la siguiente libreria openpyxl:  pip install openpyxl
 
 ruta_Excel = "C:/Practicas/Playwright/Playwright/Excel/datos_prueba.xlsx"
@@ -22,8 +23,8 @@ def DatosColumna(hoja,fila,col):
     col = ac.cell(int(fila),int(col))
     return col.value
 
-print("Numero de filas: ", NumeroFilas("Hoja1"))
-print("Datos de la columna 1, fila 2: ", DatosColumna("Hoja1",12,1))
+# print("Numero de filas: ", NumeroFilas("Hoja1"))
+# print("Datos de la columna 1, fila 2: ", DatosColumna("Hoja1",12,1))
 
 def test_excel(set_up_excel)-> None:
     page: Page = set_up_excel
